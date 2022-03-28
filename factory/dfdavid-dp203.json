@@ -1,0 +1,9 @@
+{
+	"name": "dfdavid-dp203",
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "fbc8ff4d-32f5-4a40-9b43-0a1534b20cff",
+		"tenantId": "00154e95-d081-48c5-b6dc-f42a5330726e"
+	}
+}
