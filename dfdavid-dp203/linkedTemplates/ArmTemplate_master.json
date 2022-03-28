@@ -1,0 +1,84 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory name",
+			"defaultValue": "dfdavid-dp203"
+		},
+		"AmazonS31_secretAccessKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'secretAccessKey' of 'AmazonS31'"
+		},
+		"AzureDataLakeStorage1_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'AzureDataLakeStorage1'"
+		},
+		"AzureDatabricks1_accessToken": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accessToken' of 'AzureDatabricks1'"
+		},
+		"AzureDatabricksDeltaLake1_accessToken": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accessToken' of 'AzureDatabricksDeltaLake1'"
+		},
+		"AmazonS31_properties_typeProperties_accessKeyId": {
+			"type": "string",
+			"defaultValue": "AKIASDS6A2FN6EIQSJVR"
+		},
+		"AzureDataLakeStorage1_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://sadaviddp203.dfs.core.windows.net"
+		},
+		"containerUri": {
+			"type": "string",
+			"metadata": "URI to storage account containing linked ARM templates"
+		},
+		"containerSasToken": {
+			"type": "string",
+			"metadata": "Sas token to storage account containing linked ARM templates"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "dfdavid-dp203_ArmTemplate_0",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2018-02-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_0.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"AmazonS31_secretAccessKey": {
+						"value": "[parameters('AmazonS31_secretAccessKey')]"
+					},
+					"AzureDataLakeStorage1_accountKey": {
+						"value": "[parameters('AzureDataLakeStorage1_accountKey')]"
+					},
+					"AzureDatabricks1_accessToken": {
+						"value": "[parameters('AzureDatabricks1_accessToken')]"
+					},
+					"AzureDatabricksDeltaLake1_accessToken": {
+						"value": "[parameters('AzureDatabricksDeltaLake1_accessToken')]"
+					},
+					"AmazonS31_properties_typeProperties_accessKeyId": {
+						"value": "[parameters('AmazonS31_properties_typeProperties_accessKeyId')]"
+					},
+					"AzureDataLakeStorage1_properties_typeProperties_url": {
+						"value": "[parameters('AzureDataLakeStorage1_properties_typeProperties_url')]"
+					}
+				}
+			},
+			"dependsOn": []
+		}
+	]
+}
