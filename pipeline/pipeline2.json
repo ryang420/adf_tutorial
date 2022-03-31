@@ -15,12 +15,9 @@
 				},
 				"userProperties": [],
 				"typeProperties": {
-					"notebookPath": "/Users/ren.yang86@outlook.com/adftutorial/mynotebook",
+					"notebookPath": "/Users/ren.yang86@outlook.com/adftutorial/12-Production-Workloads-with-Azure-Data-Factory/Record-Run",
 					"baseParameters": {
-						"input": {
-							"value": "@pipeline().parameters.name",
-							"type": "Expression"
-						}
+						"ranBy": "ADF"
 					}
 				},
 				"linkedServiceName": {
@@ -29,11 +26,6 @@
 				}
 			}
 		],
-		"parameters": {
-			"name": {
-				"type": "string"
-			}
-		},
 		"annotations": [],
 		"lastPublishTime": "2022-03-25T06:21:59Z"
 	},
